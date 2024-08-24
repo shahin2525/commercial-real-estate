@@ -1,9 +1,27 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../auth/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     console.log(data);
+    const email = data.email;
+    const password = data.password;
+    createUser(email, password)
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+
+    console.log(email, password);
     reset();
   };
   return (
@@ -28,7 +46,7 @@ const Register = () => {
             <span className="label-text">Name</span>
           </label>
           <input
-            {...register("Name")}
+            {...register("name")}
             type="text"
             placeholder="name"
             className="input input-bordered"
@@ -57,7 +75,7 @@ const Register = () => {
             <span className="label-text">Password</span>
           </label>
           <input
-            {...register("Password")}
+            {...register("password")}
             type="password"
             placeholder="password"
             className="input input-bordered"
@@ -69,7 +87,7 @@ const Register = () => {
             <span className="label-text">Photo-URL</span>
           </label>
           <input
-            {...register("Photo-URL")}
+            {...register("photo-URL")}
             type="text"
             placeholder="Photo-URL"
             className="input input-bordered"
