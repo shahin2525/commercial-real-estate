@@ -1,7 +1,86 @@
+import { useForm } from "react-hook-form";
+
 const Register = () => {
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    reset();
+  };
   return (
-    <div>
-      <h1>Register page</h1>
+    <div className="sm:w-3/4 md:w-1/2 mx-auto">
+      <h1 className="text-center">Register page</h1>
+
+      {/* <form onSubmit={handleSubmit(onSubmit)}>
+        <label>Name</label>
+        <input {...register("Name")} />
+        <label>Photo-url</label>
+        <input {...register("Photo-url")} />
+        <label>Email</label>
+        <input {...register("Email")} />
+        <label>Password</label>
+        <input {...register("Password")} />
+
+        <input type="submit" />
+      </form> */}
+      <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Name</span>
+          </label>
+          <input
+            {...register("Name")}
+            type="text"
+            placeholder="name"
+            className="input input-bordered"
+            required
+          />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Email</span>
+          </label>
+          <input
+            {...register("email")}
+            type="email"
+            placeholder="email"
+            className="input input-bordered"
+            required
+          />
+          {/* <label className="label">
+            <a href="#" className="label-text-alt link link-hover">
+              Forgot password?
+            </a>
+          </label> */}
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Password</span>
+          </label>
+          <input
+            {...register("Password")}
+            type="password"
+            placeholder="password"
+            className="input input-bordered"
+            required
+          />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Photo-URL</span>
+          </label>
+          <input
+            {...register("Photo-URL")}
+            type="text"
+            placeholder="Photo-URL"
+            className="input input-bordered"
+            required
+          />
+        </div>
+        <div className="form-control mt-6">
+          {/* <button className="btn btn-primary">Login</button> */}
+          <input className="btn btn-primary" type="submit" />
+        </div>
+      </form>
     </div>
   );
 };
