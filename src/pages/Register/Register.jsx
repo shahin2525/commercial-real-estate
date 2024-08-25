@@ -1,8 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../auth/AuthProvider";
-
+import { FaRegEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const { createUser } = useContext(AuthContext);
 
   const { register, handleSubmit, reset } = useForm();
@@ -70,17 +73,26 @@ const Register = () => {
             </a>
           </label> */}
         </div>
-        <div className="form-control">
+        <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
           <input
             {...register("password")}
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="password"
             className="input input-bordered"
+            min="6"
+            max="20"
+            pattern="(?=.*[A-Z])(?=.*[a-z]).*"
             required
           />
+          <button
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute top-[62%] right-2"
+          >
+            {showPassword ? <FaEyeSlash /> : <FaRegEye />}
+          </button>
         </div>
         <div className="form-control">
           <label className="label">
@@ -98,6 +110,12 @@ const Register = () => {
           {/* <button className="btn btn-primary">Login</button> */}
           <input className="btn btn-primary" type="submit" />
         </div>
+        <p className="text-[18px]">
+          already have an account{" "}
+          <Link className="text-bold text-[18px] text-[#ff4800]" to="/login">
+            Login
+          </Link>
+        </p>
       </form>
     </div>
   );
