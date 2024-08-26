@@ -6,6 +6,7 @@ import { FaEyeSlash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
   const { createUser } = useContext(AuthContext);
 
   const { register, handleSubmit, reset } = useForm();
@@ -21,6 +22,7 @@ const Register = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
+        setError(errorMessage);
         console.log(errorMessage);
       });
 
