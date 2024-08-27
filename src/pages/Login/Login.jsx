@@ -9,7 +9,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   console.log(error);
-  const { createUser } = useContext(AuthContext);
+  const { loginUser } = useContext(AuthContext);
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -17,7 +17,7 @@ const Login = () => {
     const email = data.email;
     const password = data.password;
     setError("");
-    createUser(email, password)
+    loginUser(email, password)
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
@@ -39,18 +39,6 @@ const Login = () => {
       {error && <p className="text-2xl text-red-500 font-bold">{error}</p>}
 
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Name</span>
-          </label>
-          <input
-            {...register("name")}
-            type="text"
-            placeholder="name"
-            className="input input-bordered"
-            required
-          />
-        </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
@@ -89,24 +77,13 @@ const Login = () => {
             {showPassword ? <FaEyeSlash /> : <FaRegEye />}
           </button>
         </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Photo-URL</span>
-          </label>
-          <input
-            {...register("photo-URL")}
-            type="text"
-            placeholder="Photo-URL"
-            className="input input-bordered"
-            required
-          />
-        </div>
+
         <div className="form-control mt-6">
           {/* <button className="btn btn-primary">Login</button> */}
           <input className="btn btn-primary" type="submit" />
         </div>
         <p className="text-[18px]">
-          do not have an account
+          do not have an account {}
           <Link className="text-bold text-[18px] text-[#ff4800]" to="/register">
             Register
           </Link>
