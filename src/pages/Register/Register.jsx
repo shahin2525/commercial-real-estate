@@ -4,9 +4,12 @@ import { AuthContext } from "../../auth/AuthProvider";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  console.log(error);
   const { createUser } = useContext(AuthContext);
 
   const { register, handleSubmit, reset } = useForm();
@@ -14,37 +17,28 @@ const Register = () => {
     console.log(data);
     const email = data.email;
     const password = data.password;
+    setError("");
     createUser(email, password)
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
+        toast("user created successfully");
         console.log(user);
       })
       .catch((error) => {
-        const errorMessage = error.message;
-        setError(errorMessage);
-        console.log(errorMessage);
+        // const errorMessage = error.message;
+        setError(error.message);
+        console.log(error);
       });
 
-    console.log(email, password);
     reset();
   };
   return (
     <div className="sm:w-3/4 md:w-1/2 mx-auto">
       <h1 className="text-center">Register page</h1>
 
-      {/* <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Name</label>
-        <input {...register("Name")} />
-        <label>Photo-url</label>
-        <input {...register("Photo-url")} />
-        <label>Email</label>
-        <input {...register("Email")} />
-        <label>Password</label>
-        <input {...register("Password")} />
+      {error && <p className="text-2xl text-red-500 font-bold">{error}</p>}
 
-        <input type="submit" />
-      </form> */}
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
         <div className="form-control">
           <label className="label">
