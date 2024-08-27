@@ -10,7 +10,7 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   console.log(error);
-  const { createUser } = useContext(AuthContext);
+  const { createUser, userUpdateProfile } = useContext(AuthContext);
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -24,6 +24,14 @@ const Register = () => {
         const user = userCredential.user;
         toast("user created successfully");
         console.log(user);
+        userUpdateProfile(data.name, data.photoUrl)
+          .then(() => {
+            // Profile updated!
+            // ...
+          })
+          .catch((error) => {
+            setError(error);
+          });
       })
       .catch((error) => {
         // const errorMessage = error.message;
@@ -95,7 +103,7 @@ const Register = () => {
             <span className="label-text">Photo-URL</span>
           </label>
           <input
-            {...register("photo-URL")}
+            {...register("photoUrl")}
             type="text"
             placeholder="Photo-URL"
             className="input input-bordered"

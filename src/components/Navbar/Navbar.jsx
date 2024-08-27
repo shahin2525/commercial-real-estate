@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../auth/AuthProvider";
 import("./Navbar.css");
 const Navbar = () => {
+  const { logout, user } = useContext(AuthContext);
+  console.log(user);
   const links = (
     <>
       <li>
@@ -46,11 +50,18 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
+        {user && <p>{user.displayName}</p>}
         <button
           className="btn font-bold text-[18px]"
           style={{ color: "#ff4800" }}
         >
-          <Link to="/login">Login</Link>
+          {user ? (
+            <>
+              <p onClick={logout}>Logout</p>
+            </>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
         </button>
       </div>
     </div>
