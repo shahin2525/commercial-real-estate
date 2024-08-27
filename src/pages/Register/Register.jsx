@@ -34,8 +34,8 @@ const Register = () => {
     reset();
   };
   return (
-    <div className="sm:w-3/4 md:w-1/2 mx-auto">
-      <h1 className="text-center">Register page</h1>
+    <div className="sm:w-3/4 md:w-1/2 mx-auto pt-[90px]">
+      {/* <h1 className="text-center">Register page</h1> */}
 
       {error && <p className="text-2xl text-red-500 font-bold">{error}</p>}
 
