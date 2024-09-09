@@ -71,7 +71,11 @@ const Login = () => {
             required
           />
           <button
-            onClick={() => setShowPassword(!showPassword)}
+            type="button"
+            onClick={() => {
+              // e.stopPropagation();
+              setShowPassword(!showPassword);
+            }}
             className="absolute top-[62%] right-2"
           >
             {showPassword ? <FaEyeSlash /> : <FaRegEye />}

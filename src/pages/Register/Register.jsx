@@ -9,8 +9,12 @@ import "react-toastify/dist/ReactToastify.css";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
-  console.log(error);
-  const { createUser, userUpdateProfile } = useContext(AuthContext);
+  // console.log(error);
+  const {
+    createUser,
+
+    // userUpdateProfile
+  } = useContext(AuthContext);
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -24,14 +28,14 @@ const Register = () => {
         const user = userCredential.user;
         toast("user created successfully");
         console.log(user);
-        userUpdateProfile(data.name, data.photoUrl)
-          .then(() => {
-            // Profile updated!
-            // ...
-          })
-          .catch((error) => {
-            setError(error);
-          });
+        // userUpdateProfile(data.name, data.photoUrl)
+        //   .then(() => {
+        //     // Profile updated!
+        //     // ...
+        //   })
+        //   .catch((error) => {
+        //     setError(error);
+        //   });
       })
       .catch((error) => {
         // const errorMessage = error.message;

@@ -50,19 +50,29 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        {user && <p>{user.displayName}</p>}
-        <button
-          className="btn font-bold text-[18px]"
-          style={{ color: "#ff4800" }}
-        >
-          {user ? (
-            <>
-              <p onClick={logout}>Logout</p>
-            </>
-          ) : (
-            <Link to="/login">Login</Link>
-          )}
-        </button>
+        {/* {user && <p>{user.displayName}</p>}  */}
+        <div className="tooltip tooltip-left " data-tip={user?.displayName}>
+          <button
+            className="btn font-bold text-[18px]"
+            style={{ color: "#ff4800" }}
+          >
+            {user ? (
+              <>
+                <p onClick={logout}>Logout</p>
+                <div className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                    />
+                  </div>
+                </div>
+              </>
+            ) : (
+              <Link to="/login">Login</Link>
+            )}
+          </button>
+        </div>
       </div>
     </div>
   );
