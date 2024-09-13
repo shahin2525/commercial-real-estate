@@ -5,18 +5,19 @@ import("./Navbar.css");
 const Navbar = () => {
   const { logout, user } = useContext(AuthContext);
   console.log(user);
+  console.log(user?.photoURL);
   const links = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink to="/update-profile">Update Profile</NavLink>
-      </li>
+      </li> */}
     </>
   );
   return (
-    <div className="navbar bg-black text-white fixed bg-opacity-30 z-10">
+    <div className="navbar bg-black text-white fixed bg-opacity-30 z-10 pb-5">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -63,7 +64,7 @@ const Navbar = () => {
                   <div className="w-10 rounded-full">
                     <img
                       alt="Tailwind CSS Navbar component"
-                      src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                      src={user.photoURL}
                     />
                   </div>
                 </div>

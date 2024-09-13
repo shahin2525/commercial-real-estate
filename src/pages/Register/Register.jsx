@@ -13,7 +13,7 @@ const Register = () => {
   const {
     createUser,
 
-    // userUpdateProfile
+    userUpdateProfile,
   } = useContext(AuthContext);
 
   const { register, handleSubmit, reset } = useForm();
@@ -28,14 +28,14 @@ const Register = () => {
         const user = userCredential.user;
         toast("user created successfully");
         console.log(user);
-        // userUpdateProfile(data.name, data.photoUrl)
-        //   .then(() => {
-        //     // Profile updated!
-        //     // ...
-        //   })
-        //   .catch((error) => {
-        //     setError(error);
-        //   });
+        userUpdateProfile(data.name, data.photoUrl)
+          .then(() => {
+            // Profile updated!
+            // ...
+          })
+          .catch((error) => {
+            setError(error);
+          });
       })
       .catch((error) => {
         // const errorMessage = error.message;

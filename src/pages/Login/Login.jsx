@@ -2,14 +2,15 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../auth/AuthProvider";
 import { toast } from "react-toastify";
-import { FaEyeSlash, FaRegEye } from "react-icons/fa";
+import { FaEyeSlash, FaRegEye, FaGoogle, FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+
   console.log(error);
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -27,10 +28,33 @@ const Login = () => {
       .catch((error) => {
         // const errorMessage = error.message;
         setError(error.message);
+        toast(error.message);
         console.log(error);
       });
 
     reset();
+  };
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  };
+  const handleGithubLogin = () => {
+    githubLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
   };
   return (
     <div className="sm:w-3/4 md:w-1/2 mx-auto pt-[90px]">
@@ -91,6 +115,23 @@ const Login = () => {
           <Link className="text-bold text-[18px] text-[#ff4800]" to="/register">
             Register
           </Link>
+        </p>
+        <p className="flex items-center justify-center">
+          google login
+          <button
+            type="button"
+            //  onClick={handleGoogleLogin}
+
+            onClick={handleGoogleLogin}
+          >
+            <FaGoogle className="ml-2" />
+          </button>
+        </p>
+        <p className="flex items-center justify-center">
+          github login
+          <button type="button" onClick={handleGithubLogin}>
+            <FaGithub className="ml-2" />
+          </button>
         </p>
       </form>
     </div>
