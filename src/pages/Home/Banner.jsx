@@ -15,30 +15,48 @@ import imgNetflix from "./../../assets/images/128px-Netflix-Logo.png";
 
 const Banner = () => {
   return (
-    <Swiper
-      // install Swiper modules
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={50}
-      slidesPerView={3}
-      navigation
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log("slide change")}
-    >
-      <SwiperSlide className="text-center rounded border-2 border-cyan-100 p-2">
-        <img src={imgBook} alt="" />
-      </SwiperSlide>
-      <SwiperSlide className="text-center rounded border-2 border-cyan-100 p-2">
-        <img src={imgHardware} alt="" />
-      </SwiperSlide>
-      <SwiperSlide className="text-center rounded border-2 border-cyan-100 p-2">
-        <img src={imgMac} alt="" />
-      </SwiperSlide>
-      <SwiperSlide className="text-center rounded border-2 border-cyan-100 p-2">
-        <img src={imgNetflix} alt="" />
-      </SwiperSlide>
-    </Swiper>
+    <div className="container pt-10 mx-auto rounded border-2 border-cyan-100">
+      <Swiper
+        // install Swiper modules
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={20}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        // scrollbar={{ draggable: true }}
+        // onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
+      >
+        <SwiperSlide className="rounded border-2 border-cyan-100 w-[250px] h-[250px] px-10">
+          <img
+            className="mx-auto w-[850px] h-[550px] bg-green-200 "
+            src={imgBook}
+            alt=""
+          />
+        </SwiperSlide>
+        <SwiperSlide className="rounded border-2 border-cyan-100 w-[250px] h-[250px]">
+          <img
+            className="mx-auto w-100% h-full bg-green-200 "
+            src={imgHardware}
+            alt=""
+          />
+        </SwiperSlide>
+        <SwiperSlide className="rounded border-2 border-cyan-100 w-[250px] h-[250px]">
+          <img
+            className="mx-auto w-[850px] h-[250px] bg-green-200 "
+            src={imgMac}
+            alt=""
+          />
+        </SwiperSlide>
+        <SwiperSlide className="rounded border-2 border-cyan-100 w-[250px] h-[250px]">
+          <img
+            className="mx-auto w-[850px] h-[350px] bg-green-200"
+            src={imgNetflix}
+            alt=""
+          />
+        </SwiperSlide>
+      </Swiper>
+    </div>
   );
 };
 
