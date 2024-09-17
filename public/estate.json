@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "image": "https://i.ibb.co.com/RpmQGSH/francesca-tosolini-Xc-Vm8mn7-NUM-unsplash.jpg",
+    "estate_title": "Modern Office Space in Downtown Dhaka",
+    "price": 1000000,
+    "description": "A spacious and fully furnished office space in the heart of Dhaka.",
+    "segment_name": "Commercial",
+    "status": "rent",
+    "area": 2000,
+    "location": "Dhaka, Bangladesh",
+    "facilities": ["meeting rooms", "parking", "high-speed internet"]
+  },
+  {
+    "id": 2,
+    "image": "https://i.ibb.co.com/0Fz6s8f/brian-babb-Xbw-Hrt87m-Q0-unsplash.jpg",
+    "estate_title": "Prime Retail Space in Gulshan",
+    "price": 5000000,
+    "description": "A high-traffic retail space in the upscale Gulshan neighborhood.",
+    "segment_name": "Commercial",
+    "status": "sale",
+    "area": 1500,
+    "location": "Gulshan, Dhaka, Bangladesh",
+    "facilities": ["large storefront", "high ceilings", "security"]
+  },
+  {
+    "id": 3,
+    "image": "https://i.ibb.co.com/bQZ9BQG/aaron-huber-G7s-E2-S4-Lab4-unsplash.jpg",
+    "estate_title": "Warehouse Space in Uttara",
+    "price": 2000000,
+    "description": "A large warehouse space with excellent access to transportation.",
+    "segment_name": "Industrial",
+    "status": "rent",
+    "area": 5000,
+    "location": "Uttara, Dhaka, Bangladesh",
+    "facilities": ["loading docks", "storage space", "security"]
+  },
+  {
+    "id": 4,
+    "image": "https://i.ibb.co.com/wMsMf0b/kenny-eliason-kdwahp-WYf-Qo-unsplash.jpg",
+    "estate_title": "Serviced Office Space in Banani",
+    "price": 800,
+    "description": "A fully furnished and managed office space with all amenities.",
+    "segment_name": "Commercial",
+    "status": "rent",
+    "area": 150,
+    "location": "Banani, Dhaka, Bangladesh",
+    "facilities": ["reception area", "meeting rooms", "internet"]
+  },
+  {
+    "id": 5,
+    "image": "https://i.ibb.co.com/yfPbXMj/francesca-tosolini-6jap-TIj-UQo-I-unsplash.jpg",
+    "estate_title": "Luxurious Office Space in Downtown Dhaka",
+    "price": 1000000,
+    "description": "A spacious and fully furnished office space in the heart of Dhaka.",
+    "segment_name": "Commercial",
+    "status": "rent",
+    "area": 2000,
+    "location": "Dhaka, Bangladesh",
+    "facilities": ["meeting rooms", "parking", "high-speed internet"]
+  },
+  {
+    "id": 6,
+    "image": "https://i.ibb.co.com/qJQTXCj/francesca-tosolini-t-Hk-JAMc-O3-QE-unsplash.jpg",
+    "estate_title": "Meeting Office Space in Banani",
+    "price": 800,
+    "description": "A fully furnished and managed office space with all amenities.",
+    "segment_name": "Commercial",
+    "status": "rent",
+    "area": 150,
+    "location": "Banani, Dhaka, Bangladesh",
+    "facilities": ["reception area", "meeting rooms", "internet"]
+  }
+]

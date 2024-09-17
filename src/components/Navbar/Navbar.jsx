@@ -4,8 +4,8 @@ import { AuthContext } from "../../auth/AuthProvider";
 import("./Navbar.css");
 const Navbar = () => {
   const { logout, user } = useContext(AuthContext);
-  console.log(user);
-  console.log(user?.photoURL);
+  // console.log(user);
+  // console.log(user?.photoURL);
   const links = (
     <>
       <li>

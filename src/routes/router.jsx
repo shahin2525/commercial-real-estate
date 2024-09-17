@@ -5,6 +5,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import ErrorPage from "../pages/Error/ErrorPage";
 import UpdateProfile from "../pages/UpdateProfile/UpdateProfile";
+import ViewDetailEstate from "../pages/Home/ViewDetailEstate";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/estate/:id",
+        loader: () => fetch("/estate.json"),
+        element: <ViewDetailEstate></ViewDetailEstate>,
       },
       {
         path: "/update-profile",

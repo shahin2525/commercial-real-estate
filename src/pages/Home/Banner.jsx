@@ -8,14 +8,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import imgBook from "./../../assets/images/book.png";
-import imgHardware from "./../../assets/images/harddrivecable.png";
-import imgMac from "./../../assets/images/macbook-exposed.png";
-import imgNetflix from "./../../assets/images/128px-Netflix-Logo.png";
 
 const Banner = () => {
   return (
-    <div className="container pt-10 mx-auto rounded border-2 border-cyan-100">
+    <div className="mt-6 pt-2 pb-0 flex items-center justify-center">
       <Swiper
         // install Swiper modules
         modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -27,31 +23,24 @@ const Banner = () => {
         // onSwiper={(swiper) => console.log(swiper)}
         // onSlideChange={() => console.log("slide change")}
       >
-        <SwiperSlide className="rounded border-2 border-cyan-100 w-[250px] h-[250px] px-10">
+        <SwiperSlide className="rounded border-2 border-cyan-300">
           <img
-            className="mx-auto w-[850px] h-[550px] bg-green-200 "
-            src={imgBook}
+            className="mx-auto w-full h-[2015px] bg-green-200 pb-0"
+            src="https://i.ibb.co.com/fXqvbsb/rktkn-J7cl-I8q-J0x-A-unsplash.jpg"
             alt=""
           />
         </SwiperSlide>
-        <SwiperSlide className="rounded border-2 border-cyan-100 w-[250px] h-[250px]">
+        <SwiperSlide className="rounded border-2 border-cyan-100 pb-0">
           <img
-            className="mx-auto w-100% h-full bg-green-200 "
-            src={imgHardware}
+            className="mx-auto w-full h-full bg-green-200 pb-0"
+            src="https://i.ibb.co.com/zXFLDNf/sorasak-Kx-CJXXGsv9-I-unsplash.jpg"
             alt=""
           />
         </SwiperSlide>
-        <SwiperSlide className="rounded border-2 border-cyan-100 w-[250px] h-[250px]">
+        <SwiperSlide className="rounded border-2 border-cyan-100 pb-0">
           <img
-            className="mx-auto w-[850px] h-[250px] bg-green-200 "
-            src={imgMac}
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide className="rounded border-2 border-cyan-100 w-[250px] h-[250px]">
-          <img
-            className="mx-auto w-[850px] h-[350px] bg-green-200"
-            src={imgNetflix}
+            className="mx-auto w-full h-full pb-0"
+            src="https://i.ibb.co.com/GHT0zJ4/mihail-ribkin-Vjml-Dje-PHj-E-unsplash.jpg"
             alt=""
           />
         </SwiperSlide>
