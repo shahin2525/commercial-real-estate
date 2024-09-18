@@ -4,10 +4,16 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../auth/AuthProvider";
 
 const UpdateProfile = () => {
-  const { user, userUpdateProfile } = useContext(AuthContext);
+  const { user, userUpdateProfile, setLoading } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    userUpdateProfile(data.name, data.photoUrl);
+    userUpdateProfile(data.name, data.photoUrl)
+      .then(() => {
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
     reset();
   };
