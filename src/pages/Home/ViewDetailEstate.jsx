@@ -19,7 +19,6 @@ const ViewDetailEstate = () => {
     estate_title,
     facilities,
   } = matchIdData;
-  console.log(facilities);
 
   //   console.log(data, id);
 

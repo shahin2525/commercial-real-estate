@@ -4,10 +4,10 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../auth/AuthProvider";
 
 const UpdateProfile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, userUpdateProfile } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    userUpdateProfile(data.name, data.photoUrl);
 
     reset();
   };
@@ -20,26 +20,21 @@ const UpdateProfile = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
         <div className="form-control">
           <label className="label">
-            <span className="label-text">name: {user?.displayName}</span>
+            <span className="label-text">Your name: {user?.displayName}</span>
           </label>
           <input
             {...register("name")}
             type="text"
-            placeholder={user?.displayName}
+            placeholder="you can change your name"
             className="input input-bordered"
-            required
           />
         </div>
         <div className="form-control">
-          <label className="label">
-            <span className="label-text">Email: {user?.email}</span>
-          </label>
           <input
-            {...register("email")}
-            type="email"
-            placeholder="email"
+            type="text"
+            placeholder={user?.email}
+            readOnly
             className="input input-bordered"
-            required
           />
         </div>
         <div className="form-control">
@@ -49,13 +44,14 @@ const UpdateProfile = () => {
           <input
             {...register("photoUrl")}
             type="text"
-            placeholder={user?.photoURL}
+            placeholder="you can change your url"
             className="input input-bordered"
-            required
           />
         </div>
+
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+          {/* <button className="btn btn-primary">Login</button> */}
+          <input className="btn btn-primary" type="submit" />
         </div>
       </form>
     </div>
