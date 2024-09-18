@@ -11,9 +11,9 @@ const Navbar = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      {/* <li>
+      <li>
         <NavLink to="/update-profile">Update Profile</NavLink>
-      </li> */}
+      </li>
     </>
   );
   return (
@@ -51,7 +51,6 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        {/* {user && <p>{user.displayName}</p>}  */}
         <div className="tooltip tooltip-left " data-tip={user?.displayName}>
           <button
             className="btn font-bold text-[18px]"
